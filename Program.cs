@@ -69,18 +69,31 @@ class BlogPost
 	public string Title { get; set; } = "Untitled";
 	public string Content { get; set; } = "No content";
 
+	private PostState State { get; set; }
+
 	public BlogPost(string title, string content)
 	{
 		Title = title;
 		Content = content;
+		State = 0;
 	}
 
 	public void Publish()
 	{
-
+		if (State != (PostState)2)
+		{
+			Console.WriteLine("Can't publish an archived post!");
+			return;
+		}
+		State = (PostState)1;
 	}
 	public void Archive()
 	{
-
+		if (State != (PostState)1)
+		{
+			Console.WriteLine("Can't archive a draft!");
+			return;
+		}
+		State = (PostState)2;
 	}
 }
