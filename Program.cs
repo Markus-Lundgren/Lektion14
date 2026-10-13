@@ -3,6 +3,8 @@
 enum Season { Spring, Summer, Autumn, Winter }
 
 enum MenuOption { StartGame, LoadGame, Settings, Exit }
+
+enum PostState { Draft, Published, Archived }
 class Program
 {
 
