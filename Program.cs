@@ -15,13 +15,11 @@ class Program
 
 		// foreach (SeasonalActivity s in list) Console.WriteLine(s.ToString());
 
-		while (true)
-		{
-			Console.Write("Välj val: ");
-			string option = Console.ReadLine();
-
-			HandleMenuOption((MenuOption)Enum.Parse(typeof(MenuOption), option));
-		}
+		// while (true)
+		// {
+		// 	Console.Write("Välj val: ");
+		// 	HandleMenuOption((MenuOption)Enum.Parse(typeof(MenuOption), Console.ReadLine()));
+		// }
 	}
 
 	static void HandleMenuOption(MenuOption option)
@@ -61,5 +59,26 @@ class SeasonalActivity
 	public override string ToString()
 	{
 		return Season + ": " + Activity;
+	}
+}
+
+class BlogPost
+{
+	public string Title { get; set; } = "Untitled";
+	public string Content { get; set; } = "No content";
+
+	public BlogPost(string title, string content)
+	{
+		Title = title;
+		Content = content;
+	}
+
+	public void Publish()
+	{
+
+	}
+	public void Archive()
+	{
+
 	}
 }
