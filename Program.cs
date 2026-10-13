@@ -1,17 +1,49 @@
 ﻿namespace Lektion14;
 
 enum Season { Spring, Summer, Autumn, Winter }
+
+enum MenuOption { StartGame, LoadGame, Settings, Exit }
 class Program
 {
 
 	static void Main(string[] args)
 	{
-		List<SeasonalActivity> list = [new(Season.Spring, "Vårstäda"),
-			new(Season.Summer, "Sola och bada"),
-			new(Season.Autumn, "Höststäda"),
-			new(Season.Winter, "Åka skidor")];
+		// List<SeasonalActivity> list = [new(Season.Spring, "Vårstäda"),
+		// 	new(Season.Summer, "Sola och bada"),
+		// 	new(Season.Autumn, "Höststäda"),
+		// 	new(Season.Winter, "Åka skidor")];
 
-		foreach (SeasonalActivity s in list) Console.WriteLine(s.ToString());
+		// foreach (SeasonalActivity s in list) Console.WriteLine(s.ToString());
+
+		while (true)
+		{
+			Console.Write("Välj val: ");
+			string option = Console.ReadLine();
+
+			HandleMenuOption((MenuOption)Enum.Parse(typeof(MenuOption), option));
+		}
+	}
+
+	static void HandleMenuOption(MenuOption option)
+	{
+		switch (option)
+		{
+			case MenuOption.StartGame:
+				Console.WriteLine("Start game");
+				break;
+			case MenuOption.LoadGame:
+				Console.WriteLine("Load game");
+				break;
+			case MenuOption.Settings:
+				Console.WriteLine("Settings");
+				break;
+			case MenuOption.Exit:
+				Console.WriteLine("Exit");
+				break;
+			default:
+				Console.WriteLine("Not an option");
+				break;
+		}
 	}
 }
 
